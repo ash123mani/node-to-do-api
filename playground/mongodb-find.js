@@ -1,5 +1,5 @@
 // const MongoClient = require('mongodb').MongoClient;
-const {MongoClient, ObjectId} = require('mongodb');
+const {MongoClient, ObjectID} = require('mongodb');
 
 // const obj = new ObjectId();
 // console.log(obj)
@@ -15,7 +15,7 @@ MongoClient.connect('mongodb://127.0.0.1:27017/TodoApp',{useNewUrlParser: true},
     const db = client.db('TodoApp');
 
     // db.collection("Todos").find(
-    //   {_id: new ObjectId('5bfec52b6631eb5607c3a924')
+    //   {_id: new ObjectID('5bfec52b6631eb5607c3a924')
     // }).toArray().then((docs) => {
     //   console.log('Todos');
     //   console.log(JSON.stringify(docs, undefined, 4));
