@@ -22,8 +22,15 @@ app.post('/todos', (req, res) => {
   }, (err) => {
     res.status(400).send(err)
   })
-
 });
+
+app.get('/todos', (req, res) => {
+  Todo.find().then((doc) => {
+    res.send(doc)
+  })
+}, (err) => {
+  res.send(err.status(400).send())
+})
 
 
 app.listen(3000, () => {
