@@ -1,14 +1,19 @@
 // const MongoClient = require('mongodb').MongoClient;
-const {MongoClient, ObjectID} = require('mongodb');
+const {
+  MongoClient,
+  ObjectID
+} = require('mongodb');
 
 // const obj = new ObjectId();
 // console.log(obj)
 
 
-MongoClient.connect('mongodb://127.0.0.1:27017/TodoApp',{useNewUrlParser: true},
- (err, client) => {
+MongoClient.connect('mongodb://127.0.0.1:27017/TodoApp', {
+    useNewUrlParser: true
+  },
+  (err, client) => {
     if (err) {
-    return console.log('Unable to connect to database');
+      return console.log('Unable to connect to database');
     }
     console.log('Connected to mongodb server');
 
@@ -41,14 +46,14 @@ MongoClient.connect('mongodb://127.0.0.1:27017/TodoApp',{useNewUrlParser: true},
 
     db.collection("Users").findOneAndUpdate({
       name: "Ashutosh"
-    },{
+    }, {
       $set: {
         name: "Ashutosh Tripathi"
       },
       $inc: {
         age: 5
       }
-    },{
+    }, {
       returnOriginal: false
     }).then((result) => {
       console.log(result)

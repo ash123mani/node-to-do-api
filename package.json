@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nose server/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "test": "export NODE_ENV=TEST && echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
     "node": "8.14.0"
@@ -14,10 +14,13 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.4.0",
     "lodash": "^4.17.11",
     "mongodb": "^3.1.10",
-    "mongoose": "^5.3.14"
+    "mongoose": "^5.3.14",
+    "validator": "^10.9.0"
   },
   "prettier": {
     "printWidth": 120,
