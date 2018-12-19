@@ -9,6 +9,8 @@ var {mongoose} = require('./db/mongoose');
 var {Todo} = require('./models/todo');
 var {User} = require('./models/user');
 
+var {authenticate} = require('./middleware/authenticate');
+
 var app = express();
 
 const port = process.env.PORT || 3000;
@@ -124,7 +126,11 @@ app.patch('/todos/:id', (req, res) => {
     });
 });
 
-app.post('/user', (req, res) => {
+app.get('/user/me', authenticate, (req, res) => {
+  res.send(req.user);
+});
+
+app.post('/users', (req, res) => {
   var body = _.pick(req.body, ['email', 'password']);
 
   var newUser = new User({
